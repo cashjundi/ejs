@@ -1,0 +1,8 @@
+{
+  "name": "ejs-vercel-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^3.1.9"
+  }
+}
