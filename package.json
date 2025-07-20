@@ -3,6 +3,6 @@
   "type": "module",
   "dependencies": {
     "ejs": "^3.1.9",
-    "node-fetch": "^3.4.0"
+    "node-fetch": "^2.6.11"
   }
 }
