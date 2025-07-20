@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>EJS on Vercel Test</title>
+    <meta charset="UTF-8">
+    <title>CFX.re User Lookup</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 50px; }
+        img { border-radius: 50%; margin-top: 20px; }
+    </style>
 </head>
 <body>
-  <h1>Hello, <%= name %>!</h1>
-  <p>This page is rendered using EJS on Vercel serverless functions.</p>
+    <h1>CFX.re Username Lookup</h1>
+    <form method="POST" action="/lookup">
+        <input type="text" name="username" placeholder="Enter CFX username" required>
+        <button type="submit">Lookup</button>
+    </form>
+
+    <% if (error) { %>
+        <p style="color:red;"><%= error %></p>
+    <% } else if (profile) { %>
+        <h2><%= profile.name || profile.username %> (@<%= profile.username %>)</h2>
+        <img src="<%= profile.avatar %>" width="128">
+        <p><%= profile.bio || "No bio available" %></p>
+        <p>Joined: <%= new Date(profile.created_at).toLocaleDateString() %></p>
+        <% if (profile.website) { %>
+            <p>Website: <%= profile.website %></p>
+        <% } %>
+    <% } %>
 </body>
 </html>
